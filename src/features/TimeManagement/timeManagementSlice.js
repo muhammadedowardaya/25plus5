@@ -8,7 +8,7 @@ const initialState = {
 	sessionLength: localStorage.getItem('sessionLength')
 		? localStorage.getItem('sessionLength')
 		: 25,
-	play: localStorage.getItem('play') ? localStorage.getItem('play') : false,
+	play: localStorage.getItem('play') === 'true' ? localStorage.getItem('play') : false,
 	time: localStorage.getItem('time')
 		? localStorage.getItem('time')
 		: formatTime(25),
@@ -68,7 +68,11 @@ export const timeManagementSlice = createSlice({
 		},
 		togglePlayTime: (state) => {
 			state.play = !state.play;
-			localStorage.setItem('play', state.play);
+			if (localStorage.getItem('play') === 'true') {
+				localStorage.setItem('play', 'false');
+			} else {
+				localStorage.setItem('play', 'true');
+			}
 		},
 		resetTimeManagement: (state) => {
 			state.breakLength = 5;

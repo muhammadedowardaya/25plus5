@@ -26,7 +26,21 @@ export default function Timer() {
 	const intervalRef = React.useRef();
 
 	React.useEffect(() => {
+		const audioBreak = document.getElementById('audio-break');
+		const audioSession = document.getElementById('audio-session');
 		let remainingTime = totalSeconds;
+
+        if (!audioBreak.paused && !play && breakTime) {
+            audioBreak.pause();
+        }else if(audioBreak.paused && play && breakTime){
+            audioBreak.play();
+        }
+
+        if (!audioSession.paused && !play && !breakTime) {
+            audioSession.pause();
+        }else if(audioSession.paused && play && !breakTime){
+            audioSession.play();
+        }
 
 		intervalRef.current = setInterval(function () {
 			if (play) {
@@ -40,17 +54,17 @@ export default function Timer() {
 
 				if (remainingTime <= 0) {
 					clearInterval(intervalRef.current);
-					// console.log('Time is up!');
 					if (breakTime) {
 						dispatch(setBreakTime(false));
+						audioSession.play();
 						dispatch(setTotalSeconds(sessionLength * 60));
 					} else {
 						dispatch(setBreakTime(true));
+						audioBreak.play();
 						dispatch(setTotalSeconds(breakLength * 60));
 					}
 				} else {
 					dispatch(setTotalSeconds(remainingTime--));
-					// totalSeconds--;
 				}
 			}
 		}, 1000);
@@ -70,9 +84,14 @@ export default function Timer() {
 	}, [breakLength, sessionLength]);
 
 	return (
-		<div id="timer" className={breakTime && play ? 'break' : play && !breakTime ? 'play' : ''}>
+		<div
+			id="timer"
+			className={breakTime && play ? 'break' : play && !breakTime ? 'play' : ''}
+		>
 			<div id="timer-label">{breakTime ? 'Break' : 'Session'}</div>
 			<div id="time-left">{time}</div>
+			<audio src="/audios/my-ringtone.mp3" id="audio-break"></audio>
+			<audio src="/audios/bling_bang_bang_born.mp3" id="audio-session"></audio>
 		</div>
 	);
 }
