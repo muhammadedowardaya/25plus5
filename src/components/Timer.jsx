@@ -26,8 +26,8 @@ export default function Timer() {
 	const intervalRef = React.useRef();
 
 	React.useEffect(() => {
-		const audioBreak = document.getElementById('audio-break');
-		const audioSession = document.getElementById('audio-session');
+		const audioBreak = document.querySelector('audio.audio-break');
+		const audioSession = document.querySelector('audio.audio-session');
 		let remainingTime = totalSeconds;
 
 		intervalRef.current = setInterval(function () {
@@ -94,8 +94,8 @@ export default function Timer() {
 		>
 			<div id="timer-label">{breakTime ? 'Break' : 'Session'}</div>
 			<div id="time-left">{time}</div>
-			<audio id="audio-break" src="/audios/my-ringtone.mp3"></audio>
-			<audio id="audio-session" src="/audios/bling_bang_bang_born.mp3"></audio>
+			<audio id='beep' className="audio-break" src="/audios/my-ringtone.mp3"></audio>
+			<audio className="audio-session" src="/audios/bling_bang_bang_born.mp3"></audio>
 		</div>
 	);
 }

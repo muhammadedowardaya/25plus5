@@ -18,6 +18,12 @@ export default function TimerControls() {
 
 	const resetHandler = (e) => {
 		dispatch(resetTimeManagement());
+		const audioBreak = document.querySelector('audio.audio-break');
+		const audioSession = document.querySelector('audio.audio-session');
+		if (audioBreak || audioSession) {
+			audioBreak.currentTime = 0;
+			audioSession.currentTime = 0;
+		}
 		const reset = e.target.parentNode;
 		if (reset) {
 			if (!reset.classList.contains('active')) {
