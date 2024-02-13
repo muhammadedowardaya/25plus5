@@ -1,0 +1,56 @@
+@use 'TimeStyle';
+
+#session-time {
+	@include TimeStyle.time();
+
+	#session-label {
+		font-size: 2rem;
+	}
+
+	.session-time__controls {
+		display: flex;
+		align-items: center;
+
+		button {
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			font-size: 3rem;
+			display: flex;
+			align-items: center;
+			transition: 0.5s color;
+		}
+
+		#session-increment {
+			@include TimeStyle.buttonIncrement();
+		}
+
+		#session-decrement {
+			@include TimeStyle.buttonDecrement();
+		}
+
+		#session-time__value {
+			@include TimeStyle.timeValue();
+		}
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	#session-time {
+
+        #session-label {
+			font-size: 3rem;
+		}
+
+		.session-time__controls {
+			#session-time__value {
+				font-size: 8rem;
+				width: 10rem;
+			}
+
+			button {
+				font-size: 4rem;
+			}
+		}
+	}
+}

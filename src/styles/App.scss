@@ -1,0 +1,41 @@
+@use 'TimeStyle';
+
+#app {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+
+	#title {
+		font-size: 4rem;
+		text-align: center;
+		font-weight: 900;
+	}
+
+	.time-management {
+		@include TimeStyle.layoutTimeManagement();
+		margin-top: 2rem;
+	}
+}
+
+@media only screen and (min-width: 400px) {
+	#app {
+		#title {
+			margin-bottom: 3rem;
+			font-size: 5rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	#app {
+		.time-management {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr;
+		}
+
+		#title {
+			margin-bottom: 5rem;
+			font-size: 7rem;
+		}
+	}
+}

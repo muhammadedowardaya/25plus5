@@ -1,0 +1,57 @@
+@use 'TimeStyle';
+
+#break-time {
+	@include TimeStyle.time();
+
+	#break-label {
+		font-size: 2rem;
+	}
+
+	.break-time__controls {
+		display: flex;
+		align-items: center;
+
+		button {
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			font-size: 3rem;
+			display: flex;
+			align-items: center;
+			padding: 1px;
+			border-radius: 50%;
+			transition: 0.5s color;
+		}
+
+		#break-time__value {
+			@include TimeStyle.timeValue();
+		}
+
+		#break-increment {
+			@include TimeStyle.buttonIncrement();
+		}
+
+		#break-decrement {
+			@include TimeStyle.buttonDecrement();
+		}
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	#break-time {
+		#break-label {
+			font-size: 3rem;
+		}
+
+		.break-time__controls {
+			#break-time__value {
+				font-size: 8rem;
+				width: 10rem;
+			}
+
+			button {
+				font-size: 4rem;
+			}
+		}
+	}
+}

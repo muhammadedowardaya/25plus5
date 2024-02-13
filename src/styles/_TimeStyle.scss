@@ -1,0 +1,53 @@
+@mixin time() {
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	font-weight: 900;
+}
+
+@mixin layoutTimeManagement() {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	justify-content: center;
+	gap: 1rem;
+}
+
+@mixin buttonIncrement() {
+	background-color: #16ff00;
+	border-radius: 50%;
+
+	&:hover {
+		color: #16ff00;
+		background-color: #fff;
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+@mixin buttonDecrement() {
+	background-color: #ff0000;
+	border-radius: 50%;
+
+	&:hover {
+		color: #ff0000;
+		background-color: #fff;
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+@mixin timeValue() {
+	font-size: 6rem;
+	padding: 0 1rem;
+	width: 8rem;
+	text-align: center;
+	font-family: 'Honk', system-ui;
+}
+
