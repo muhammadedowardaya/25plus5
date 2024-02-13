@@ -30,22 +30,6 @@ export default function Timer() {
 		const audioSession = document.getElementById('audio-session');
 		let remainingTime = totalSeconds;
 
-		if (!audioBreak.paused && !play && breakTime) {
-			audioBreak.pause();
-		} else if (audioBreak.paused && play && breakTime) {
-			if (!audioBreak.ended) {
-				audioBreak.play();
-			}
-		}
-
-		if (!audioSession.paused && !play && !breakTime) {
-			audioSession.pause();
-		} else if (audioSession.paused && play && !breakTime) {
-			if (!audioSession.ended) {
-				audioSession.play();
-			}
-		}
-
 		intervalRef.current = setInterval(function () {
 			if (play) {
 				const displayMinutes = Math.floor(remainingTime / 60);
@@ -72,6 +56,22 @@ export default function Timer() {
 				}
 			}
 		}, 1000);
+
+		if (!audioBreak.paused && !play && breakTime) {
+			audioBreak.pause();
+		} else if (audioBreak.paused && play && breakTime) {
+			if (!audioBreak.ended) {
+				audioBreak.play();
+			}
+		}
+
+		if (!audioSession.paused && !play && !breakTime) {
+			audioSession.pause();
+		} else if (audioSession.paused && play && !breakTime) {
+			if (!audioSession.ended) {
+				audioSession.play();
+			}
+		}
 
 		return () => {
 			clearInterval(intervalRef.current);
