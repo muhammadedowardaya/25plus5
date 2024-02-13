@@ -20,6 +20,15 @@
 html {
 	font-size: 62.5%;
 	overflow-x: hidden;
+
+	head {
+		link {
+			&[rel='icon'][type='image/svg+xml'] {
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+	}
 }
 
 #root {
@@ -43,5 +52,11 @@ footer {
 
 	span {
 		padding: 0 1rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	footer {
+		font-size: 2rem;
 	}
 }

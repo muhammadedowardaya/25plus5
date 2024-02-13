@@ -55,3 +55,22 @@
 		}
 	}
 }
+
+@media only screen and (min-width: 1200px) {
+	#break-time {
+		#break-label {
+			font-size: 4rem;
+		}
+
+		.break-time__controls {
+			#break-time__value {
+				font-size: 10rem;
+				width: 10rem;
+			}
+
+			button {
+				font-size: 6rem;
+			}
+		}
+	}
+}

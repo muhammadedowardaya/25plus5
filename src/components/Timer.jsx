@@ -30,17 +30,21 @@ export default function Timer() {
 		const audioSession = document.getElementById('audio-session');
 		let remainingTime = totalSeconds;
 
-        if (!audioBreak.paused && !play && breakTime) {
-            audioBreak.pause();
-        }else if(audioBreak.paused && play && breakTime){
-            audioBreak.play();
-        }
+		if (!audioBreak.paused && !play && breakTime) {
+			audioBreak.pause();
+		} else if (audioBreak.paused && play && breakTime) {
+			if (!audioBreak.ended) {
+				audioBreak.play();
+			}
+		}
 
-        if (!audioSession.paused && !play && !breakTime) {
-            audioSession.pause();
-        }else if(audioSession.paused && play && !breakTime){
-            audioSession.play();
-        }
+		if (!audioSession.paused && !play && !breakTime) {
+			audioSession.pause();
+		} else if (audioSession.paused && play && !breakTime) {
+			if (!audioSession.ended) {
+				audioSession.play();
+			}
+		}
 
 		intervalRef.current = setInterval(function () {
 			if (play) {
@@ -90,8 +94,8 @@ export default function Timer() {
 		>
 			<div id="timer-label">{breakTime ? 'Break' : 'Session'}</div>
 			<div id="time-left">{time}</div>
-			<audio src="/audios/my-ringtone.mp3" id="audio-break"></audio>
-			<audio src="/audios/bling_bang_bang_born.mp3" id="audio-session"></audio>
+			<audio id="audio-break" src="/audios/my-ringtone.mp3"></audio>
+			<audio id="audio-session" src="/audios/bling_bang_bang_born.mp3"></audio>
 		</div>
 	);
 }

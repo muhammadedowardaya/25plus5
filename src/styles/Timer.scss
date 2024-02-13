@@ -63,6 +63,19 @@
 	}
 }
 
+@media only screen and (min-width: 1200px) {
+	#timer {
+		width: 40rem;
+		#timer-label {
+			font-size: 6rem;
+		}
+
+		#time-left {
+			font-size: 14rem;
+		}
+	}
+}
+
 @keyframes neon-red {
 	0% {
 		filter: drop-shadow(1px 4px 8px #ff004d);
