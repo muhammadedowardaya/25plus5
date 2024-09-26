@@ -18,6 +18,10 @@ const initialState = {
 	breakTime: localStorage.getItem('breakTime')
 		? localStorage.getItem('breakTime')
 		: false,
+    audioBreakUrl: localStorage.getItem('audioBreakUrl') ? localStorage.getItem('audioBreakUrl') : null,
+    audioSessionUrl: localStorage.getItem('audioSessionUrl') ? localStorage.getItem('audioSessionUrl') : null,
+    imageBreakUrl: localStorage.getItem('imageBreakUrl') ? localStorage.getItem('imageBreakUrl') : null,
+    imageSessionUrl: localStorage.getItem('imageSessionUrl') ? localStorage.getItem('imageSessionUrl') : null
 };
 
 export const timeManagementSlice = createSlice({
@@ -90,6 +94,22 @@ export const timeManagementSlice = createSlice({
 			state.breakTime = action.payload;
 			localStorage.setItem('breakTime', action.payload);
 		},
+		setAudioBreakUrl: (state, action) => {
+			state.audioBreakUrl = action.payload;
+			localStorage.setItem('audioBreakUrl', action.payload);
+		},
+		setAudioSessionUrl: (state, action) => {
+			state.audioSessionUrl = action.payload;
+			localStorage.setItem('audioSessionUrl', action.payload);
+		},
+		setImageBreakUrl: (state, action) => {
+			state.imageBreakUrl = action.payload;
+			localStorage.setItem('imageBreakUrl', action.payload);
+		},
+		setImageSessionUrl: (state, action) => {
+			state.imageSessionUrl = action.payload;
+			localStorage.setItem('imageSessionUrl', action.payload);
+		},
 	},
 });
 
@@ -103,6 +123,10 @@ export const {
 	resetTimeManagement,
 	setTime,
 	setTotalSeconds,
+    setAudioBreakUrl,
+    setAudioSessionUrl,
+    setImageBreakUrl,
+    setImageSessionUrl
 } = timeManagementSlice.actions;
 
 export default timeManagementSlice.reducer;

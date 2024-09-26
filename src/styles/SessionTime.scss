@@ -38,8 +38,10 @@
 
 @media only screen and (min-width: 700px) {
 	#session-time {
+        margin-bottom: 3rem;
 		#session-label {
 			font-size: 3rem;
+            line-height: 6rem;
 		}
 
 		.session-time__controls {
