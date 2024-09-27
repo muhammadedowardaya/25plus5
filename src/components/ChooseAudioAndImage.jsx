@@ -154,11 +154,16 @@ export const ChooseAudioAndImage = () => {
                 const imageSessionFile = document.getElementById("imageSession").files[0];
                 const imageBreakFile = document.getElementById("imageBreak").files[0];
 
-                const imageSessionUrl = URL.createObjectURL(imageSessionFile);
-                const imageBreakUrl = URL.createObjectURL(imageBreakFile);
+                if (imageSessionFile) {
+                    const imageSessionUrl = URL.createObjectURL(imageSessionFile);
+                    dispatch(setImageSessionUrl(imageSessionUrl));
+                }
 
-                dispatch(setImageSessionUrl(imageSessionUrl));
-                dispatch(setImageBreakUrl(imageBreakUrl));
+                if (imageBreakFile) {
+                    const imageBreakUrl = URL.createObjectURL(imageBreakFile);
+                    dispatch(setImageBreakUrl(imageBreakUrl));
+                }
+
             }
         });
     };

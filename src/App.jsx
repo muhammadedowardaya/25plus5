@@ -27,10 +27,10 @@ function App() {
                 <SessionTime />
             </div>
             <div className={`${play && breakTime ? 'block' : 'hidden'}`}>
-                <img src={imageBreak? imageBreak : '/images/squidward-break.gif'} alt='break time image' className='w-full xs:w-[360px] mx-auto pb-6 sm:pb-20' />
+                <img src={imageBreak? imageBreak : '/images/squidward-break.gif'} alt='break time image' className='object-cover w-full h-[190px] sm:h-[350px] xs:w-[360px] sm:w-[500px] mx-auto pb-6 sm:pb-20 lg:pb-10 lg:mt-20' />
             </div>
             <div className={`${play && !breakTime ? 'block' : 'hidden'}`}>
-                <img src={imageSession? imageSession : '/images/spongebob.gif'} alt='session time image' className='w-full xs:w-[360px] mx-auto pb-6 sm:pb-20' />
+                <img src={imageSession? imageSession : '/images/spongebob.gif'} alt='session time image' className='object-cover w-full h-[190px] sm:h-[350px] xs:w-[360px] sm:w-[500px] mx-auto pb-6 sm:pb-20 lg:pb-10 lg:mt-20' />
             </div>
             <Timer />
             <TimerControls />

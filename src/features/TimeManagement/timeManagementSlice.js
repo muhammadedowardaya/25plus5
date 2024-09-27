@@ -18,10 +18,10 @@ const initialState = {
 	breakTime: localStorage.getItem('breakTime')
 		? localStorage.getItem('breakTime')
 		: false,
-    audioBreakUrl: localStorage.getItem('audioBreakUrl') ? localStorage.getItem('audioBreakUrl') : null,
-    audioSessionUrl: localStorage.getItem('audioSessionUrl') ? localStorage.getItem('audioSessionUrl') : null,
-    imageBreakUrl: localStorage.getItem('imageBreakUrl') ? localStorage.getItem('imageBreakUrl') : null,
-    imageSessionUrl: localStorage.getItem('imageSessionUrl') ? localStorage.getItem('imageSessionUrl') : null
+    audioBreakUrl: null,
+    audioSessionUrl: null,
+    imageBreakUrl: null,
+    imageSessionUrl: null
 };
 
 export const timeManagementSlice = createSlice({
