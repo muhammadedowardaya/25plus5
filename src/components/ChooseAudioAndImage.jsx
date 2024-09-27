@@ -140,7 +140,7 @@ export const ChooseAudioAndImage = () => {
                         <input type="file" id="imageSession" accept="image/*" />
                     </div>
                     <div class="input-item">
-                        <label htmlFor="imageBreak">Audio Break</label>
+                        <label htmlFor="imageBreak">Image Break</label>
                         <input type="file" id="imageBreak" accept="image/*" />
                     </div>
                 </div>
