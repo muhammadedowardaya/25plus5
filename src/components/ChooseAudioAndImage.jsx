@@ -87,10 +87,10 @@ export const ChooseAudioAndImage = () => {
     useEffect(() => {
         const showAlerts = async () => {
             await audioAlert();  // Menunggu audioAlert selesai
-            imageAlert();        // Menjalankan imageAlert setelahnya
+            // Menjalankan imageAlert setelahnya
         };
 
-        showAlerts();
+        showAlerts().then(() => imageAlert());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
