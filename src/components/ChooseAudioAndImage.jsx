@@ -8,6 +8,10 @@ import { useEffect } from "react";
 export const ChooseAudioAndImage = () => {
     const dispatch = useDispatch();
 
+    const aboutAlert = async () => {
+        return Swal.fire('Apa itu 25 + 5?','Aplikasi ini dirancang untuk mengatur sesi waktu, seperti bekerja, berolahraga, belajar, atau aktivitas lainnya, serta mengelola waktu istirahat. Dengan mengatur sesi produktif dan istirahat, diharapkan dapat meningkatkan produktivitas Anda','info')
+    }
+
     const imageAlert = async () => {
         return Swal.fire({
             title: "Pilih Image?",
@@ -86,11 +90,13 @@ export const ChooseAudioAndImage = () => {
 
     useEffect(() => {
         const showAlerts = async () => {
+            await aboutAlert();
             await audioAlert();  // Menunggu audioAlert selesai
+            await imageAlert();
             // Menjalankan imageAlert setelahnya
         };
 
-        showAlerts().then(() => imageAlert());
+        showAlerts();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
